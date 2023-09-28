@@ -56,7 +56,7 @@ function getPrompts() {
   }
 
   if (confirm("Do you want numbers in your password?")) {   //ask if they want these chars 
-    userArray = userArray + (numbers);
+    userArray = userArray.concat(numbers);
 
   }
   if (confirm("Do you want symbols symbols in your password?")) {    //ask if they want these chars
