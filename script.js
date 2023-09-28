@@ -41,7 +41,7 @@ function getPrompts() {
 
   characterLength = parseInt(prompt("How long do you want your password? (8 - 128 characters")); //how many chars does user want
 
-  if (isNaN(characterLength) || characterLength < 8 || characterLength > 128) {  // if correct parameters are chosen these should be false
+  if (characterLength) characterLength <= 8  characterLength >= 128) {  // if correct parameters are chosen these should be false
     alert("Character length must be from 8-128 characters. C'mon man!")
     return false;
   }
