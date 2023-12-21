@@ -1,5 +1,4 @@
-var characterLength = 8;
-var userArray = [];
+
 
 const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 const symbols = ['!', '#', '$', '%', '~', '&', '%', '@', '*', '^'];
@@ -7,58 +6,25 @@ const lettersUppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
 const lettersLowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 
-// Assignment Code//
-var generateBtn = document.querySelector("#generate");
 
-// Add event listner to generate button//
-generateBtn.addEventListener("click", writePassword);
+var generateBtn = document.querySelector("#generate");       // Assignment Code - makes button on html page//
+var characterLength = 0;
+var userArray = [];
+var ask = document.querySelector("#askagain");
 
-// Write password to @password input
-function writePassword() {
-
-  // whether user inputs allowed items in prompts//
-  var allowedPrompts = getPrompts();
-
-
-  var passwordText = document.querySelector("#password");
-
-  if (allowedPrompts) {
-    var userPassword = generatePassword();
-    passwordText.value = userPassword;
-
-    //clears the box
-  } else {
-    passwordText.value = "";
-  }
-}
-//creates password//
-function generatePassword() {
-  var password = "";
-
-  //for loop to keep adding more chars//
-  for (let i = 0; i < characterLength; i++) {
-    let randomChar = Math.floor(Math.random() * userArray.length);
-
-    // local var to hold userPassword//
-    password += userArray[randomChar];
-
-  }
-  return password;
-}
+generateBtn.addEventListener("click", writePassword);    // Add event listner to start program when user clicks button//
 
 function getPrompts() {
-
-  // start with empty array//
-  userArray = [];
-
-  //how many chars does user want//
-  characterLength = prompt("How long do you want your password? (8 - 128 characters");
+  userArray = [];   // start with empty array//
+  characterLength = prompt("Man, how long you need this? (8 - 128 characters");    //Start by asking how many characters you want in the password//
 
   // if correct parameters are chosen these should be false//
+
   if (isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
     alert("Character length must be from 8-128 characters. C'mon man!")
     return false;
   }
+
   //ask if they want these chars//
   if (confirm("Do you want lowercase letters in your password?")) {
     userArray = userArray.concat(lettersLowercase);
@@ -88,8 +54,54 @@ function getPrompts() {
 
     return false;
   }
-
-
-
-
 }
+
+//creates password//
+function generatePassword() {
+  var password = "";
+
+
+
+  //for loop to keep adding more chars//
+  for (let i = 0; i < characterLength; i++) {
+    let randomChar = Math.floor(Math.random() * userArray.length);
+
+    // local var to hold userPassword//
+    password += userArray[randomChar];
+
+
+  }
+
+  return password;
+}
+
+// Write password to @password input
+
+function writePassword(event) {
+
+
+
+  event.preventDefault();
+  // whether user inputs allowed items in prompts//
+  var allowedPrompts = getPrompts();
+
+
+  var passwordText = document.querySelector("#password");
+
+  if (allowedPrompts) {
+    var userPassword = generatePassword();
+    passwordText.value = userPassword;
+
+
+    //clears the box
+  } else {
+    passwordText.value = "";
+  }
+}
+
+
+
+
+
+
+
