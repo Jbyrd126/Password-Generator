@@ -11,7 +11,6 @@ var generateBtn = document.querySelector("#generate");       // Assignment Code 
 var characterLength = 0;
 var userArray = [];
 var ask = document.querySelector("#askagain");
-var changeP = document.querySelector("#askagain");
 
 
 
@@ -80,10 +79,6 @@ function generatePassword() {
   return password;
 }
 
-function clearText() {
-  document.getElementById('#askagain').value = "";
-  document.getElementById('textfield2').value = "";
-}
 
 // Write password to @password input
 
