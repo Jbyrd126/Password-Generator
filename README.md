@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Robert Byrd</h1>
-<h3 align="center">Pass-Gen</h3>
+<h3 align="center">Password Genterator</h3>
 
 - 🔭 I’m currently struggling on **password generator for javascript**
 
@@ -11,4 +11,4 @@
 
 - 📫 How to reach me **Glurk33@gmail.com**
 
-
+  ![Password Generator ](assets/img/pass.png)
