@@ -7,10 +7,13 @@ const lettersLowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 
 
 
-var generateBtn = document.querySelector("#generate");       // Assignment Code - makes button on html page//
+var generateBtn = document.querySelector("#generate");       // Assignment Code //
 var characterLength = 0;
 var userArray = [];
 var ask = document.querySelector("#askagain");
+var changeP = document.querySelector("#askagain");
+
+
 
 generateBtn.addEventListener("click", writePassword);    // Add event listner to start program when user clicks button//
 
@@ -58,6 +61,8 @@ function getPrompts() {
 
 //creates password//
 function generatePassword() {
+
+
   var password = "";
 
 
@@ -75,28 +80,40 @@ function generatePassword() {
   return password;
 }
 
+function clearText() {
+  document.getElementById('#askagain').value = "";
+  document.getElementById('textfield2').value = "";
+}
+
 // Write password to @password input
 
-function writePassword(event) {
+function writePassword() {
 
 
-
-  event.preventDefault();
   // whether user inputs allowed items in prompts//
+
   var allowedPrompts = getPrompts();
-
-
+  // this is where we are going to drop the generated password
   var passwordText = document.querySelector("#password");
+
 
   if (allowedPrompts) {
     var userPassword = generatePassword();
     passwordText.value = userPassword;
 
 
-    //clears the box
-  } else {
-    passwordText.value = "";
+
   }
+  if (userPassword) {
+    ask.textContent = "Would you like another, Sir?";
+  }
+
+  //clears the box
+  else {
+    passwordText.value = "";
+
+  }
+
 }
 
 
